@@ -1,0 +1,6 @@
+{
+  "extends": ["semistandard"],
+  "parserOptions": {
+      "sourceType": "module"
+  }
+}

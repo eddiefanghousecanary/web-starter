@@ -1,0 +1,15 @@
+.appBarContents {
+  flex-basis: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+.userMenu {
+  padding: 0.25rem;
+  background-color: #e8e8e8;
+}

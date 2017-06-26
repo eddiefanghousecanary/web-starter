@@ -1,0 +1,24 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.titleCloseContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dataContainer {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.subData {
+  font-size: 0.9rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: #a3a3a3;
+}

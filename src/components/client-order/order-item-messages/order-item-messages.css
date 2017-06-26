@@ -1,0 +1,10 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.titleCloseContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

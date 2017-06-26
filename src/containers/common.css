@@ -1,0 +1,29 @@
+.appBar {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.blueGradientBg {
+  background: linear-gradient(90deg, #31A5C0, #005585);
+}
+
+.panelContent {
+  flex: 1;
+  overflow-y: 'auto' 
+}
+
+.clientHeader {
+  composes: blueGradientBg;
+  padding: 1rem 5rem 4rem 5rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.listContainer {
+  background-color: white;
+  margin: -3.5rem 5em 1rem 5rem;
+  border-right: 1px solid #ECECEC;
+  border-left: 1px solid #ECECEC;
+}
