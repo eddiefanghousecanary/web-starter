@@ -77,6 +77,8 @@ export class Client {
     if (status) {
       url += `&status=${status}`;
     }
+    return Promise.resolve({links: [], data: []});
+    /*
     return fetch(url, {
       method: 'GET',
       headers: {
@@ -89,6 +91,7 @@ export class Client {
         };
       });
     });
+    */
   }
 
   getDetail (id : string) {

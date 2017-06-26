@@ -5,7 +5,7 @@ import type { AcceptOrderAcceptedAction } from '../actions/accept-order.actions'
 
 import { delay } from 'redux-saga';
 import { call, put, select, takeEvery } from 'redux-saga/effects';
-import { Client } from '../api/order-manager-api-client';
+import { Client } from '../api/api-client';
 import { resetAcceptOrder, acceptOrderLoadComplete, acceptOrderLoadError, acceptOrderComplete, ORDER_ACCEPTED } from '../actions/accept-order.actions';
 import { handleStandardExceptions } from './helpers';
 

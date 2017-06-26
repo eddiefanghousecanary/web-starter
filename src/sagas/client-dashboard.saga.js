@@ -8,7 +8,7 @@ import type { IOEffect } from 'redux-saga';
 import type { OrderSet } from '../constants/order-sets';
 
 import type { CreateOrderAction, ReviewAcceptOrderAction, ReviewRejectOrderAction } from '../actions/order.actions';
-import { Client } from '../api/order-manager-api-client';
+import { Client } from '../api/api-client';
 import {
   CREATE_ORDER,
   REVIEW_ACCEPT_ORDER,
@@ -85,7 +85,7 @@ export function * loadClientDashboardSaga ({set = ORDER_SETS.ACTIVE, page = 1} :
     const client = new Client(userDetails.token);
     // TODO: pass statuses here when backend works
     // const {links, data} = yield call([client, client.getOrders], page, ORDER_SET_TO_STATUSES[orderSet]);
-    const {links, data} = yield call([client, client.getOrders], page);
+    const {links, data} = yield call([client, client.getList], page);
     const orders = data.map(item => snakeToCamel(item, SNAKE_ORDER_FIELDS, {}, false));
     yield put(ordersLoadSuccess(set, orders, links, page));
   } catch (e) {
