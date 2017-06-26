@@ -4,9 +4,9 @@ import fetch from 'isomorphic-fetch';
 
 var SETTINGS = window.SETTINGS;
 
-const createPath = () => `/client-api/v1/items/csv`;
-const getListPath = (page, pageSize = 10) => `/client-api/v1/item/?page=${page}&page_size=${pageSize}`;
-const getDetailPath = (id) => `/client-api/v1/item/${id}/`;
+const createOrderPath = () => `/client-api/v1/orders/csv`;
+const getOrdersPath = (page, pageSize = 10) => `/client-api/v1/orders/?page=${page}&page_size=${pageSize}`;
+const getOrderPath = (id) => `/client-api/v1/orders/${id}/`;
 
 export function LoginRequiredError (message : ?string) {
   this.name = 'LoginRequiredError';
@@ -54,8 +54,11 @@ export class Client {
     this.token = token;
   }
 
-  createNew (data : FormData) {
-    const url = `${this.apiUrl}${createPath()}`;
+  createNewOrder (data : FormData) {
+    const url = `${this.apiUrl}${createOrderPath()}`;
+    return Promise.resolve({name: 'hi'});
+
+    /*
     return fetch(url, {
       method: 'POST',
       headers: {
@@ -70,14 +73,17 @@ export class Client {
       }
       return maybeThrowApiError(response) || response.json();
     });
+    */
   }
 
-  getList (page : number = 1, status : ?string = null) {
-    let url = `${this.apiUrl}${getListPath(page)}`;
+  getOrders (page : number = 1, status : ?string = null) {
+    let url = `${this.apiUrl}${getOrdersPath(page)}`;
     if (status) {
       url += `&status=${status}`;
     }
-    return Promise.resolve({links: [], data: []});
+    return Promise.resolve({links: [], data: [{
+      name: 'test data'
+    }]});
     /*
     return fetch(url, {
       method: 'GET',
@@ -94,8 +100,10 @@ export class Client {
     */
   }
 
-  getDetail (id : string) {
-    let url = `${this.apiUrl}${getDetailPath(id)}`;
+  getOrderDetails (id : string) {
+    let url = `${this.apiUrl}${getOrderPath(id)}`;
+    return Promise.resolve({name: 'hi'});
+    /*
     return fetch(url, {
       method: 'GET',
       headers: {
@@ -104,5 +112,6 @@ export class Client {
     }).then(response => {
       return maybeThrowApiError(response) || response.json();
     });
+    */
   }
 }

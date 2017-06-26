@@ -85,7 +85,7 @@ export function * loadClientDashboardSaga ({set = ORDER_SETS.ACTIVE, page = 1} :
     const client = new Client(userDetails.token);
     // TODO: pass statuses here when backend works
     // const {links, data} = yield call([client, client.getOrders], page, ORDER_SET_TO_STATUSES[orderSet]);
-    const {links, data} = yield call([client, client.getList], page);
+    const {links, data} = yield call([client, client.getOrders], page);
     const orders = data.map(item => snakeToCamel(item, SNAKE_ORDER_FIELDS, {}, false));
     yield put(ordersLoadSuccess(set, orders, links, page));
   } catch (e) {
@@ -139,9 +139,11 @@ export function * loadOrderItems ({orderId, page} : {orderId: number, page: numb
       const orderDetails = yield call([client, client.getOrderDetails], orderId);
       yield put(selectOrder(orderDetails));
     }
+    /*
     const {links, data} = yield call([client, client.getOrderItems], orderId, page);
     const orderItems = data.map(item => snakeToCamel(item, SNAKE_ORDER_ITEM_FIELDS));
     yield put(orderItemsLoadSuccess(orderItems, links, page));
+    */
   } catch (e) {
     yield call(handleStandardExceptions, e);
     yield put(orderItemsLoadError(e.message));
