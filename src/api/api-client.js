@@ -82,6 +82,7 @@ export class Client {
       url += `&status=${status}`;
     }
     return Promise.resolve({links: [], data: [{
+      id: '12345',
       name: 'test data'
     }]});
     /*
@@ -102,7 +103,7 @@ export class Client {
 
   getOrderDetails (id : string) {
     let url = `${this.apiUrl}${getOrderPath(id)}`;
-    return Promise.resolve({name: 'hi'});
+    return Promise.resolve({name: 'test data'});
     /*
     return fetch(url, {
       method: 'GET',
@@ -111,6 +112,27 @@ export class Client {
       }
     }).then(response => {
       return maybeThrowApiError(response) || response.json();
+    });
+    */
+  }
+
+  getOrderItems (orderId : string, page : number = 1) {
+    let url = `${this.apiUrl}${getOrderItemsPath(orderId, page)}`;
+
+    return Promise.resolve({links: [], data: []});
+    /*
+    return fetch(url, {
+      method: 'GET',
+      headers: {
+        'Authorization': `JWT ${this.token}`
+      }
+    }).then(response => {
+      return maybeThrowApiError(response) || response.json().then(data => {
+        return {
+          links: parseLinkHeader(response.headers.get('Link')),
+          data
+        };
+      });
     });
     */
   }

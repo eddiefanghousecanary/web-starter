@@ -73,7 +73,7 @@ class ClientOrder extends React.Component {
         </div>
         <div className={commonStyles.panelContent}>
           <div className={commonStyles.clientHeader}>
-            <span>Hello world</span>
+            <span>{clientDashboardState.selectedOrder.name}</span>
           </div>
           <div className={commonStyles.listContainer}>
             <OrderItemList
