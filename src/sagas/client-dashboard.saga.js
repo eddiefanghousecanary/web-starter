@@ -124,11 +124,6 @@ export function * loadOrderItems ({orderId, page} : {orderId: number, page: numb
       const orderDetails = yield call([client, client.getOrderDetails], orderId);
       yield put(selectOrder(orderDetails));
     }
-    /*
-    const {links, data} = yield call([client, client.getOrderItems], orderId, page);
-    const orderItems = data.map(item => snakeToCamel(item, SNAKE_ORDER_ITEM_FIELDS));
-    yield put(orderItemsLoadSuccess(orderItems, links, page));
-    */
   } catch (e) {
     yield call(handleStandardExceptions, e);
     yield put(orderItemsLoadError(e.message));

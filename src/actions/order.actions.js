@@ -10,10 +10,7 @@ export const HIDE_ORDER_TOAST = 'HIDE_ORDER_TOAST';
 export const ORDERS_LOAD_SUCCESS = 'ORDERS_LOAD_SUCCESS';
 export const ORDERS_LOAD_ERROR = 'ORDERS_LOAD_ERROR';
 export const SELECT_ORDER = 'SELECT_ORDER';
-export const ORDER_ITEMS_LOAD_SUCCESS = 'ORDER_ITEMS_LOAD_SUCCESS';
-export const ORDER_ITEMS_LOAD_ERROR = 'ORDER_ITEMS_LOAD_ERROR';
 export const REVIEW_ORDER_UPDATED = 'REVIEW_ORDER_UPDATED';
-export const SELECT_ORDER_ITEM = 'SELECT_ORDER_ITEM';
 
 export type ShowAddOrderDialogAction = {
   type: 'SHOW_ADD_ORDER_DIALOG'
@@ -139,22 +136,6 @@ export type OrderItem = {
   addressValidationStatus: string
 }
 
-export type OrderItemsLoadSuccessAction = {
-  type: 'ORDER_ITEMS_LOAD_SUCCESS',
-  payload: {
-    links: {[key: string]: Link},
-    orderItems: OrderItem[],
-    page: number
-  }
-}
-
-export type OrderItemsLoadErrorAction = {
-  type: 'ORDER_ITEMS_LOAD_ERROR',
-  payload: {
-    errorMessage: string
-  }
-}
-
 export type OrderAction = ShowAddOrderDialogAction
   | HideAddOrderDialogAction
   | CreateOrderAction
@@ -164,8 +145,6 @@ export type OrderAction = ShowAddOrderDialogAction
   | OrdersLoadSuccessAction
   | OrdersLoadErrorAction
   | SelectOrderAction
-  | OrderItemsLoadSuccessAction
-  | OrderItemsLoadErrorAction
 
 export const showAddOrderDialog = () : OrderAction => ({ type: SHOW_ADD_ORDER_DIALOG });
 export const hideAddOrderDialog = () : OrderAction => ({ type: HIDE_ADD_ORDER_DIALOG });
@@ -176,5 +155,3 @@ export const hideOrderToast = () : OrderAction => ({ type: HIDE_ORDER_TOAST, pay
 export const ordersLoadSuccess = (set: OrderSet, orders : Order[], links : {[key: string]: Link}, page : number) : OrderAction => ({ type: ORDERS_LOAD_SUCCESS, payload: {set, orders, links, page} });
 export const ordersLoadError = (set: OrderSet, errorMessage : string) : OrderAction => ({ type: ORDERS_LOAD_ERROR, payload: {set, errorMessage} });
 export const selectOrder = (order : Order) : OrderAction => ({ type: SELECT_ORDER, payload: {order} });
-export const orderItemsLoadSuccess = (orderItems : OrderItem[], links : {[key: string]: Link}, page: number) : OrderAction => ({ type: ORDER_ITEMS_LOAD_SUCCESS, payload: {orderItems, links, page} });
-export const orderItemsLoadError = (errorMessage : string) : OrderAction => ({ type: ORDER_ITEMS_LOAD_ERROR, payload: {errorMessage} });

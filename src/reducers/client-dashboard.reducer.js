@@ -8,8 +8,6 @@ import {
   ORDERS_LOAD_SUCCESS,
   ORDERS_LOAD_ERROR,
   SELECT_ORDER,
-  ORDER_ITEMS_LOAD_SUCCESS,
-  ORDER_ITEMS_LOAD_ERROR,
   REVIEW_ORDER_UPDATED
 } from '../actions/order.actions';
 
@@ -91,30 +89,6 @@ export function clientDashboardReducer (state : ClientDashboardState = defaultSt
       return {
         ...state,
         selectedOrder: action.payload.order
-      };
-    }
-    case ORDER_ITEMS_LOAD_SUCCESS: {
-      return {
-        ...state,
-        selectedOrderItems: {
-          loading: false,
-          links: action.payload.links,
-          pageItems: action.payload.orderItems,
-          errorMessage: null,
-          page: state.selectedOrderItems.page
-        }
-      };
-    }
-    case ORDER_ITEMS_LOAD_ERROR: {
-      return {
-        ...state,
-        selectedOrderItems: {
-          loading: false,
-          links: {},
-          pageItems: [],
-          errorMessage: action.payload.errorMessage,
-          page: state.selectedOrderItems.page
-        }
       };
     }
     case REVIEW_ORDER_UPDATED: {
