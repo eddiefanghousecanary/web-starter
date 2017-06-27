@@ -52,18 +52,6 @@ const SNAKE_ORDER_CREATE_FIELDS = [
 
 const CAMEL_ORDER_CREATE_FIELDS = SNAKE_ORDER_CREATE_FIELDS.map(camelCase);
 
-const SNAKE_ORDER_ITEM_FIELDS = [
-  'id',
-  'customer_item_id',
-  'address',
-  'unit',
-  'city',
-  'state',
-  'zipcode',
-  'status',
-  'address_validation_status'
-];
-
 const SNAKE_ORDER_FIELDS = [
   'id',
   'customer_order_id',

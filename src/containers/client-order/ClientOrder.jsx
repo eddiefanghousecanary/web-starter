@@ -6,25 +6,12 @@ import type { ClientDashboardState } from '../../reducers/client-dashboard.reduc
 import RoutingIconButton from '../../components/routing/RoutingIconButton';
 
 import OrderItemList from '../../components/client-order/order-item-list/OrderItemList';
-import OrderItemDetails from '../../components/client-order/order-item-details/OrderItemDetails';
-import OrderItemMessages from '../../components/client-order/order-item-messages/OrderItemMessages';
 
 import commonStyles from '../common.css';
 import styles from './client-order.css';
 
 type ClientOrderProps = {
   clientDashboardState: ClientDashboardState
-}
-
-function buildSidebarContents (sidebarContentsType, orderItem, handleCloseSidebar) {
-  switch (sidebarContentsType) {
-    case 'details':
-      return <OrderItemDetails orderItem={orderItem} onClose={handleCloseSidebar} />;
-    case 'messages':
-      return <OrderItemMessages orderItem={orderItem} onClose={handleCloseSidebar} />;
-    default:
-      return null;
-  }
 }
 
 class ClientOrder extends React.Component {
@@ -36,27 +23,6 @@ class ClientOrder extends React.Component {
     };
   }
   props: ClientOrderProps
-
-  handleShowOrderItemDetails (orderItem) {
-    this.setState({
-      orderItem,
-      sidebarContentsType: 'details'
-    });
-  }
-
-  handleShowOrderItemMessages (orderItem) {
-    this.setState({
-      orderItem,
-      sidebarContentsType: 'messages'
-    });
-  }
-
-  handleCloseSidebar () {
-    this.setState({
-      orderItem: null,
-      sidebarContentsType: null
-    });
-  }
 
   render () {
     const {
@@ -82,16 +48,11 @@ class ClientOrder extends React.Component {
               orderItems={clientDashboardState.selectedOrderItems.pageItems}
               links={clientDashboardState.selectedOrderItems.links}
               paginationRouteGeneratorFn={paginationRouteGeneratorFn}
-              handleShowOrderItemDetails={this.handleShowOrderItemDetails.bind(this)}
-              handleShowOrderItemMessages={this.handleShowOrderItemMessages.bind(this)}
               selectedOrderItem={this.state.orderItem}
             />
           </div>
         </div>
       </Panel>
-      <Sidebar pinned={this.state.sidebarContentsType !== null} className={styles.sideBar}>
-        {buildSidebarContents(this.state.sidebarContentsType, this.state.orderItem, this.handleCloseSidebar.bind(this))}
-      </Sidebar>
     </Layout>;
   }
 }

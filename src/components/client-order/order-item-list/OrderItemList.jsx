@@ -16,8 +16,6 @@ export type OrderItemListProps = {
   errorMessage: ?string,
   loading: bool,
   paginationRouteGeneratorFn: routeGeneratorFn,
-  handleShowOrderItemDetails: OrderItem => void,
-  handleShowOrderItemMessages: OrderItem => void,
   selectedOrderItem: ?OrderItem
 }
 
@@ -27,8 +25,6 @@ const OrderItemList = ({
   errorMessage,
   loading,
   paginationRouteGeneratorFn,
-  handleShowOrderItemDetails,
-  handleShowOrderItemMessages,
   selectedOrderItem
 } : OrderItemListProps) => {
   if (errorMessage) {
@@ -60,7 +56,6 @@ const OrderItemList = ({
         {orderItems.map(orderItem => {
           const selectedClass = (selectedOrderItem && selectedOrderItem.id === orderItem.id) ? styles.selected : '';
           return <TableRow key={orderItem.id}
-            onClick={() => handleShowOrderItemDetails(orderItem)}
             title='See Details'
             className={`${styles.row} ${selectedClass}`}>
             <TableCell>{orderItem.customerItemId}</TableCell>
@@ -73,11 +68,6 @@ const OrderItemList = ({
             <TableCell>¯\_(ツ)_/¯</TableCell>
             <TableCell>{orderItem.addressValidationStatus}</TableCell>
             <TableCell onClick={(e) => e.stopPropagation()}>
-              <IconMenu icon='more_vert'>
-                <MenuItem value='See Details' caption='See Details' onClick={() => handleShowOrderItemDetails(orderItem)} />
-                <MenuItem value='Download Report' caption='Downlooad Report' />
-                <MenuItem value='Message AMC' caption='Message AMC' onClick={() => handleShowOrderItemMessages(orderItem)} />
-              </IconMenu>
             </TableCell>
           </TableRow>;
         })}
