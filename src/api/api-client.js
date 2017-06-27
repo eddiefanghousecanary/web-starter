@@ -45,6 +45,11 @@ function maybeThrowApiError (response) {
   }
 }
 
+let fakeOrders = [
+    {id: '12345', name: 'test data'},
+    {id: '123456', name: 'test data 2'},
+  ]
+
 export class Client {
   apiUrl : string;
   token : string;
@@ -56,7 +61,9 @@ export class Client {
 
   createNewOrder (data : FormData) {
     const url = `${this.apiUrl}${createOrderPath()}`;
-    return Promise.resolve({name: 'hi'});
+    let fakeOrder = {id: '123457', name: 'hi'};
+    fakeOrders.push(fakeOrder);
+    return Promise.resolve(fakeOrder);
 
     /*
     return fetch(url, {
@@ -81,10 +88,7 @@ export class Client {
     if (status) {
       url += `&status=${status}`;
     }
-    return Promise.resolve({links: [], data: [{
-      id: '12345',
-      name: 'test data'
-    }]});
+    return Promise.resolve({links: [], data: fakeOrders});
     /*
     return fetch(url, {
       method: 'GET',
