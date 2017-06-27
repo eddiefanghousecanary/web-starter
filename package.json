@@ -23,7 +23,6 @@
     "react-css-themr": "1.7.2",
     "react-hot-loader": "3.0.0-beta.6",
     "react-redux": "5.0.4",
-    "react-tap-event-plugin": "2.0.1",
     "react-toolbox": "2.0.0-beta.8",
     "redux": "3.6.0",
     "redux-form": "6.6.3",
