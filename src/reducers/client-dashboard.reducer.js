@@ -10,8 +10,6 @@ import {
   SELECT_ORDER,
   ORDER_ITEMS_LOAD_SUCCESS,
   ORDER_ITEMS_LOAD_ERROR,
-  REVIEW_ACCEPT_ORDER,
-  REVIEW_REJECT_ORDER,
   REVIEW_ORDER_UPDATED
 } from '../actions/order.actions';
 
@@ -117,13 +115,6 @@ export function clientDashboardReducer (state : ClientDashboardState = defaultSt
           errorMessage: action.payload.errorMessage,
           page: state.selectedOrderItems.page
         }
-      };
-    }
-    case REVIEW_ACCEPT_ORDER:
-    case REVIEW_REJECT_ORDER: {
-      return {
-        ...state,
-        updatingOrders: [...state.updatingOrders, action.payload.id]
       };
     }
     case REVIEW_ORDER_UPDATED: {

@@ -11,8 +11,6 @@ import type { CreateOrderAction } from '../actions/order.actions';
 import { Client } from '../api/api-client';
 import {
   CREATE_ORDER,
-  REVIEW_ACCEPT_ORDER,
-  REVIEW_REJECT_ORDER,
   createOrderError,
   createOrderSuccess,
   ordersLoadSuccess,
