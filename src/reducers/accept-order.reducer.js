@@ -1,6 +1,7 @@
+/*
 // @flow
 import type { Action } from '../actions';
-import type { OrderDetails } from '../actions/accept-order.actions';
+//import type { OrderDetails } from '../actions/accept-order.actions';
 
 import { ACCEPT_ORDER_RESET, ACCEPT_ORDER_LOAD_COMPLETE, ACCEPT_ORDER_LOAD_ERROR, ORDER_ACCEPTED, ORDER_REJECTED, ORDER_ACCEPTED_COMPLETE } from '../actions/accept-order.actions';
 
@@ -102,3 +103,4 @@ export function acceptOrderReducer (previousState : AcceptOrderState = defaultSt
     }
   }
 }
+*/

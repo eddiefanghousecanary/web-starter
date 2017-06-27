@@ -1,3 +1,4 @@
+/*
 // @flow
 export const ACCEPT_ORDER_RESET = 'ACCEPT_ORDER_RESET';
 export const ACCEPT_ORDER_LOAD_COMPLETE = 'ACCEPT_ORDER_LOAD_COMPLETE';
@@ -62,3 +63,4 @@ export const acceptOrderLoadError = (message : string) : AcceptOrderAction => ({
 export const acceptOrder = (orderId : string, token: string) : AcceptOrderAction => ({ type: ORDER_ACCEPTED, payload: {orderId, token} });
 export const acceptOrderComplete = (link : string) : AcceptOrderAction => ({ type: ORDER_ACCEPTED_COMPLETE, payload: {link} });
 export const rejectOrder = () : AcceptOrderAction => ({ type: ORDER_REJECTED });
+*/

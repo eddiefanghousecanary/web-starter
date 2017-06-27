@@ -1,5 +1,5 @@
+/*
 // @flow
-/* global Generator */
 import type { IOEffect } from 'redux-saga';
 import type { AcceptOrderAcceptedAction } from '../actions/accept-order.actions';
 
@@ -58,3 +58,4 @@ export function * acceptOrder (action : AcceptOrderAcceptedAction) : Generator<I
 export function * acceptOrderSaga () : Generator<IOEffect, *, *> {
   yield takeEvery(ORDER_ACCEPTED, acceptOrder);
 }
+*/

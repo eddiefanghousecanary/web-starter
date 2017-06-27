@@ -1,3 +1,4 @@
+/*
 // @flow
 import type { Dispatch } from 'redux';
 import type { AcceptOrderState } from '../reducers/accept-order.reducer';
@@ -52,3 +53,4 @@ function mapDispatchToProps (dispatch : Dispatch<*>) {
 const AcceptOrderWrapped = connect(mapStateToProps, mapDispatchToProps)(SimpleLayout(AcceptOrder));
 
 export default AcceptOrderWrapped;
+*/
