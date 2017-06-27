@@ -156,13 +156,6 @@ export type OrderItemsLoadErrorAction = {
     errorMessage: string
   }
 }
-export type ReviewOrderUpdatedAction = {
-  type: 'REVIEW_ORDER_UPDATED',
-  payload: {
-    id: string,
-    success: boolean
-  }
-}
 
 export type OrderAction = ShowAddOrderDialogAction
   | HideAddOrderDialogAction
@@ -175,7 +168,6 @@ export type OrderAction = ShowAddOrderDialogAction
   | SelectOrderAction
   | OrderItemsLoadSuccessAction
   | OrderItemsLoadErrorAction
-  | ReviewOrderUpdatedAction
 
 export const showAddOrderDialog = () : OrderAction => ({ type: SHOW_ADD_ORDER_DIALOG });
 export const hideAddOrderDialog = () : OrderAction => ({ type: HIDE_ADD_ORDER_DIALOG });
@@ -188,4 +180,3 @@ export const ordersLoadError = (set: OrderSet, errorMessage : string) : OrderAct
 export const selectOrder = (order : Order) : OrderAction => ({ type: SELECT_ORDER, payload: {order} });
 export const orderItemsLoadSuccess = (orderItems : OrderItem[], links : {[key: string]: Link}, page: number) : OrderAction => ({ type: ORDER_ITEMS_LOAD_SUCCESS, payload: {orderItems, links, page} });
 export const orderItemsLoadError = (errorMessage : string) : OrderAction => ({ type: ORDER_ITEMS_LOAD_ERROR, payload: {errorMessage} });
-export const reviewOrderUpdated = (id : string, success : boolean) : OrderAction => ({ type: REVIEW_ORDER_UPDATED, payload: {id, success} });

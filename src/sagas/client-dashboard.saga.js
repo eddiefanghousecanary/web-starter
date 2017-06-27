@@ -19,8 +19,7 @@ import {
   ordersLoadError,
   selectOrder,
   orderItemsLoadSuccess,
-  orderItemsLoadError,
-  reviewOrderUpdated
+  orderItemsLoadError
 } from '../actions/order.actions';
 import { handleStandardExceptions, camelToSnake, snakeToCamel } from './helpers';
 import { ORDER_SETS } from '../constants/order-sets';
