@@ -7,7 +7,7 @@ import type { IOEffect } from 'redux-saga';
 
 import type { OrderSet } from '../constants/order-sets';
 
-import type { CreateOrderAction, ReviewAcceptOrderAction, ReviewRejectOrderAction } from '../actions/order.actions';
+import type { CreateOrderAction } from '../actions/order.actions';
 import { Client } from '../api/api-client';
 import {
   CREATE_ORDER,
@@ -158,45 +158,4 @@ export function * awaitOrderStatus (id : string, fromStatus : string, client : C
       break;
     }
   }
-}
-
-export function * reviewAcceptOrder (action : ReviewAcceptOrderAction) : Generator<IOEffect, *, *> {
-  try {
-    const userDetails = yield select(userDetailsSelector);
-    const client = new Client(userDetails.token);
-    yield call([client, client.reviewAcceptOrder], action.payload.id);
-    yield call(awaitOrderStatus, action.payload.id, 'ClientReview', client);
-    yield call(reloadClientDashboardSaga);
-    yield put(reviewOrderUpdated(action.payload.id, true));
-  } catch (e) {
-    // TODO (mikep): better errors
-    console.error(e);
-    yield call(handleStandardExceptions, e);
-    yield put(reviewOrderUpdated(action.payload.id, false));
-  }
-}
-
-export function * reviewAcceptOrderSaga () : Generator<IOEffect, *, *> {
-  yield takeEvery(REVIEW_ACCEPT_ORDER, reviewAcceptOrder);
-}
-
-export function * reviewRejectOrder (action : ReviewRejectOrderAction) : Generator<IOEffect, *, *> {
-  try {
-    const userDetails = yield select(userDetailsSelector);
-    const client = new Client(userDetails.token);
-    yield call([client, client.reviewRejectOrder], action.payload.id);
-    yield call(awaitOrderStatus, action.payload.id, 'ClientReview', client);
-    yield put(reviewOrderUpdated(action.payload.id, true));
-    yield call(loadClientDashboardSaga);
-    yield put(reviewOrderUpdated(action.payload.id, true));
-  } catch (e) {
-    // TODO (mikep): better errors
-    console.error(e);
-    yield call(handleStandardExceptions, e);
-    yield put(reviewOrderUpdated(action.payload.id, false));
-  }
-}
-
-export function * reviewRejectOrderSaga () : Generator<IOEffect, *, *> {
-  yield takeEvery(REVIEW_REJECT_ORDER, reviewRejectOrder);
 }

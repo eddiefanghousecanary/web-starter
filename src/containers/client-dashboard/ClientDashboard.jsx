@@ -17,8 +17,6 @@ import {
   hideAddOrderDialog,
   createOrder,
   hideOrderToast,
-  reviewAcceptOrder,
-  reviewRejectOrder,
   selectOrder
 } from '../../actions/order.actions';
 import AddOrderButton from '../../components/client-dashboard/AddOrderButton';
@@ -148,8 +146,6 @@ function mapDispatchToProps (dispatch : Dispatch<*>) {
       dispatch(selectOrder(order));
       routeTo(`/client/order/${order.id}`);
     },
-    handleAcceptOrder: (id) => dispatch(reviewAcceptOrder(id)),
-    handleRejectOrder: (id) => dispatch(reviewRejectOrder(id))
   };
 }
 

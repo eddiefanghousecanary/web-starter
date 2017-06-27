@@ -156,21 +156,6 @@ export type OrderItemsLoadErrorAction = {
     errorMessage: string
   }
 }
-
-export type ReviewAcceptOrderAction = {
-  type: 'REVIEW_ACCEPT_ORDER',
-  payload: {
-    id: string
-  }
-}
-
-export type ReviewRejectOrderAction = {
-  type: 'REVIEW_REJECT_ORDER',
-  payload: {
-    id: string
-  }
-}
-
 export type ReviewOrderUpdatedAction = {
   type: 'REVIEW_ORDER_UPDATED',
   payload: {
@@ -190,8 +175,6 @@ export type OrderAction = ShowAddOrderDialogAction
   | SelectOrderAction
   | OrderItemsLoadSuccessAction
   | OrderItemsLoadErrorAction
-  | ReviewAcceptOrderAction
-  | ReviewRejectOrderAction
   | ReviewOrderUpdatedAction
 
 export const showAddOrderDialog = () : OrderAction => ({ type: SHOW_ADD_ORDER_DIALOG });
@@ -205,6 +188,4 @@ export const ordersLoadError = (set: OrderSet, errorMessage : string) : OrderAct
 export const selectOrder = (order : Order) : OrderAction => ({ type: SELECT_ORDER, payload: {order} });
 export const orderItemsLoadSuccess = (orderItems : OrderItem[], links : {[key: string]: Link}, page: number) : OrderAction => ({ type: ORDER_ITEMS_LOAD_SUCCESS, payload: {orderItems, links, page} });
 export const orderItemsLoadError = (errorMessage : string) : OrderAction => ({ type: ORDER_ITEMS_LOAD_ERROR, payload: {errorMessage} });
-export const reviewAcceptOrder = (id : string) : OrderAction => ({ type: REVIEW_ACCEPT_ORDER, payload: {id} });
-export const reviewRejectOrder = (id : string) : OrderAction => ({ type: REVIEW_REJECT_ORDER, payload: {id} });
 export const reviewOrderUpdated = (id : string, success : boolean) : OrderAction => ({ type: REVIEW_ORDER_UPDATED, payload: {id, success} });
