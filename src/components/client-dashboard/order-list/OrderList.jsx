@@ -21,8 +21,6 @@ export type OrderListProps = {
   errorMessage: ?string,
   updatingOrders: string[],
   onSelectOrder: Order => void,
-  onAcceptOrder: string => void,
-  onRejectOrder: string => void,
   selectedOrder: ?Order
 }
 
@@ -34,13 +32,11 @@ function cancelAndCall (f) {
   };
 }
 
-function buildActions (order, updatingOrders, onAcceptOrder, onRejectOrder) {
+function buildActions (order, updatingOrders) {
   const disabled = updatingOrders.includes(order.id);
   switch (order.status) {
     case 'ClientReview':
       return <div>
-        <Button flat disabled={disabled} onClick={cancelAndCall(() => onAcceptOrder(order.id))}>Accept</Button>
-        <Button flat disabled={disabled} onClick={cancelAndCall(() => onRejectOrder(order.id))}>Reject</Button>
         {disabled ? <ProgressBar type='circular' mode='indeterminate' multicolor /> : null}
       </div>;
     default:
@@ -55,8 +51,6 @@ const OrderList = ({
   errorMessage,
   updatingOrders,
   onSelectOrder,
-  onAcceptOrder,
-  onRejectOrder,
   selectedOrder
 } : OrderListProps) => {
   if (errorMessage) {
@@ -94,7 +88,7 @@ const OrderList = ({
               <TableCell>{order.orderType}</TableCell>
               <TableCell>¯\_(ツ)_/¯</TableCell>
               <TableCell>¯\_(ツ)_/¯</TableCell>
-              <TableCell>{buildActions(order, updatingOrders, onAcceptOrder, onRejectOrder)}</TableCell>
+              <TableCell>{buildActions(order, updatingOrders)}</TableCell>
             </TableRow>;
           })
         }

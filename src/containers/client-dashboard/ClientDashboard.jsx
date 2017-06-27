@@ -34,8 +34,6 @@ type ClientDashboardProps = {
   handleCreateOrder: () => void,
   handleHideOrderToast: () => void,
   handleSelectOrder: Order => void,
-  handleAcceptOrder: string => void,
-  handleRejectOrder: string => void,
 }
 
 const PAGES_CONFIG = [
@@ -65,8 +63,6 @@ class ClientDashboard extends React.Component {
       handleCreateOrder,
       handleHideOrderToast,
       handleSelectOrder,
-      handleAcceptOrder,
-      handleRejectOrder
     } = this.props;
     const paginationRouteGeneratorFn = (page) => (page) ? `/client/dashboard/${clientDashboardState.orderSet}/${page}` : `/client/dashboard/${clientDashboardState.orderSet}`;
     return (
@@ -97,8 +93,6 @@ class ClientDashboard extends React.Component {
                 errorMessage={clientDashboardState.activeOrders.errorMessage}
                 onSelectOrder={handleSelectOrder}
                 updatingOrders={clientDashboardState.updatingOrders}
-                onAcceptOrder={handleAcceptOrder}
-                onRejectOrder={handleRejectOrder}
                 selectedOrder={clientDashboardState.selectedOrder}
                 />
             </div>

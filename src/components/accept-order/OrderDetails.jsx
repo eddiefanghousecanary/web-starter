@@ -8,13 +8,11 @@ import {Button} from 'react-toolbox/lib/button';
 import type { AcceptOrderLoadedState } from '../../reducers/accept-order.reducer';
 
 type OrderDetailsProps = {
-  onAcceptOrder: (orderId: string, token: string) => void,
-  onRejectOrder: () => void,
   orderState: AcceptOrderLoadedState,
   userDetails: UserDetails
 }
 
-const OrderDetails = ({onAcceptOrder, onRejectOrder, orderState, userDetails} : OrderDetailsProps) => (
+const OrderDetails = ({orderState, userDetails} : OrderDetailsProps) => (
   <Card raised>
     <CardTitle
       title='Accept Order'
@@ -42,7 +40,7 @@ const OrderDetails = ({onAcceptOrder, onRejectOrder, orderState, userDetails} : 
     <CardActions>
       {orderState.status === 'accepting'
       ? <Button onClick={() => {}} disabled>Accepting...</Button>
-      : <Button onClick={() => onAcceptOrder(orderState.orderDetails.orderId, userDetails.token)}>Accept</Button>}
+      : <Button>Accept</Button>}
     </CardActions>
   </Card>
 );
