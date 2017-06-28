@@ -79,16 +79,16 @@ const OrderList = ({
               className={`${styles.row} ${selectedClass}`}
               title='View Order Items'
               selected={selectedOrder && selectedOrder.id === order.id}>
-              <TableCell>{order.customerOrderId}</TableCell>
+              <TableCell>¯\_(ツ)_/¯</TableCell>
               <TableCell>{order.name}</TableCell>
               <TableCell>¯\_(ツ)_/¯</TableCell>
               <TableCell>¯\_(ツ)_/¯</TableCell>
               <TableCell>¯\_(ツ)_/¯</TableCell>
               <TableCell>¯\_(ツ)_/¯</TableCell>
-              <TableCell>{order.orderType}</TableCell>
               <TableCell>¯\_(ツ)_/¯</TableCell>
               <TableCell>¯\_(ツ)_/¯</TableCell>
-              <TableCell>{buildActions(order, updatingOrders)}</TableCell>
+              <TableCell>¯\_(ツ)_/¯</TableCell>
+              <TableCell>¯\_(ツ)_/¯</TableCell>
             </TableRow>;
           })
         }
