@@ -80,68 +80,9 @@ class AddOrderFormContent extends React.Component {
         <div>
           {this.props.errorMessage}
         </div>
-        <Tabs index={this.props.tabIndex} onChange={this.props.onTabChange} fixed hideMode='display'>
-          <Tab label='Order'>
-            <div>
-              <Field name='orderType' component={ToolboxDropdown} auto label='Order Type' validate={[ required ]} source={SETTINGS.ENABLED_ORDER_TYPES} />
-            </div>
-            <div>
-              <Field name='customerOrderId' component={ToolboxInput} type='text' label='Order ID' validate={[ required ]} />
-            </div>
-            <div>
-              <Field name='name' component={ToolboxInput} type='text' label='Order Name' validate={[ required ]} />
-            </div>
-            <div>
-              <Field name='intendedUse' component={ToolboxInput} type='text' label='Intended Use' validate={[ required ]} />
-            </div>
-            <div>
-              <Field name='clientName' component={ToolboxInput} type='text' label='Client Name' validate={[ required ]} />
-            </div>
-            <div>
-              <Field name='specialComments' component={ToolboxInput} type='text' label='Special Instructions' />
-            </div>
-            <div>
-              <Field name='orderFile' component={FileSelectButton} validate={[ required ]} />
-            </div>
-          </Tab>
-          <Tab label='Client'>
-            <div>
-              <Field name='clientAddress' component={ToolboxInput} type='text' label='Address' />
-            </div>
-            <div>
-              <Field name='clientCity' component={ToolboxInput} type='text' label='City' />
-            </div>
-            <div>
-              <Field name='clientState' component={ToolboxDropdown} auto label='State' source={STATES} />
-            </div>
-            <div>
-              <Field name='clientZipcode' component={ToolboxInput} type='text' label='Zipcode' />
-            </div>
-            <div>
-              <Field name='clientPhone' component={ToolboxInput} type='text' label='Phone' />
-            </div>
-          </Tab>
-          <Tab label='Lender'>
-            <div>
-              <Field name='lenderName' component={ToolboxInput} type='text' label='Name' />
-            </div>
-            <div>
-              <Field name='lenderAddress' component={ToolboxInput} type='text' label='Address' />
-            </div>
-            <div>
-              <Field name='lenderCity' component={ToolboxInput} type='text' label='City' />
-            </div>
-            <div>
-              <Field name='lenderState' component={ToolboxDropdown} auto label='State' source={STATES} />
-            </div>
-            <div>
-              <Field name='lenderZipcode' component={ToolboxInput} type='text' label='Zipcode' />
-            </div>
-            <div>
-              <Field name='lenderPhone' component={ToolboxInput} type='text' label='Phone' />
-            </div>
-          </Tab>
-        </Tabs>
+        <div>
+          <Field name='name' component={ToolboxInput} type='text' label='Order Name' validate={[ required ]} />
+        </div>
       </form>
     );
   }
@@ -176,6 +117,6 @@ export default class FormWrapper extends React.Component {
   }
 
   render () {
-    return <Form ref={e => { this.form = e; }} onSubmitFail={this.handleSubmitFail} onTabChange={this.handleTabChange} tabIndex={this.state.index} {...this.props} />;
+    return <Form ref={e => { this.form = e; }} onSubmitFail={this.handleSubmitFail} {...this.props} />;
   }
 }

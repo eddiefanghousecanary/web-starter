@@ -20,26 +20,7 @@ export type HideAddOrderDialogAction = {
 }
 
 export type CreateOrder = {
-  orderFile: any,
-  customerOrderId: string,
-  name: string,
-  orderType: string,
-  inspectionPartner?: ?string,
-  valuationPartner?: ?string,
-  intendedUse?: ?string,
-  specialComments?: ?string,
-  clientName?: ?string,
-  clientAddress?: ?string,
-  clientCity?: ?string,
-  clientState?: ?string,
-  clientZipcode?: ?string,
-  clientPhone?: ?string,
-  lenderName?: ?string,
-  lenderAddress?: ?string,
-  lenderCity?: ?string,
-  lenderState?: ?string,
-  lenderZipcode?: ?string,
-  lenderPhone?: ?string
+  name: string
 }
 
 export type CreateOrderAction = {
@@ -67,26 +48,7 @@ export type HideOrderToastAction = {
 
 export type Order = {
   id: string,
-  customerOrderId: string,
-  name: string,
-  orderType: string,
-  inspectionPartner: string,
-  valuationPartner: string,
-  status: string,
-  intendedUse: ?string,
-  specialComments: ?string,
-  clientName: ?string,
-  clientAddress: ?string,
-  clientCity: ?string,
-  clientState: ?string,
-  clientZipcode: ?string,
-  clientPhone: ?string,
-  lenderName: ?string,
-  lenderAddress: ?string,
-  lenderCity: ?string,
-  lenderState: ?string,
-  lenderZipcode: ?string,
-  lenderPhone: ?string
+  name: string
 }
 
 export type Link = {

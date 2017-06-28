@@ -60,16 +60,7 @@ const OrderList = ({
     <div>
       <Table selectable={false}>
         <TableHead>
-          <TableCell>Order</TableCell>
           <TableCell>Project Name</TableCell>
-          <TableCell>Created</TableCell>
-          <TableCell>BD Passed</TableCell>
-          <TableCell>Properties</TableCell>
-          <TableCell>Rural</TableCell>
-          <TableCell>Product</TableCell>
-          <TableCell>AVM</TableCell>
-          <TableCell>Progress</TableCell>
-          <TableCell>actions</TableCell>
         </TableHead>
         {
           orders.map(order => {
@@ -79,16 +70,7 @@ const OrderList = ({
               className={`${styles.row} ${selectedClass}`}
               title='View Order Items'
               selected={selectedOrder && selectedOrder.id === order.id}>
-              <TableCell>¯\_(ツ)_/¯</TableCell>
               <TableCell>{order.name}</TableCell>
-              <TableCell>¯\_(ツ)_/¯</TableCell>
-              <TableCell>¯\_(ツ)_/¯</TableCell>
-              <TableCell>¯\_(ツ)_/¯</TableCell>
-              <TableCell>¯\_(ツ)_/¯</TableCell>
-              <TableCell>¯\_(ツ)_/¯</TableCell>
-              <TableCell>¯\_(ツ)_/¯</TableCell>
-              <TableCell>¯\_(ツ)_/¯</TableCell>
-              <TableCell>¯\_(ツ)_/¯</TableCell>
             </TableRow>;
           })
         }

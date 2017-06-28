@@ -46,8 +46,8 @@ function maybeThrowApiError (response) {
 }
 
 let fakeOrders = [
-    {id: '12345', name: 'test data'},
-    {id: '123456', name: 'test data 2'},
+    {id: '1', name: 'test data'},
+    {id: '2', name: 'test data 2'},
   ]
 
 export class Client {
@@ -61,7 +61,7 @@ export class Client {
 
   createNewOrder (data : FormData) {
     const url = `${this.apiUrl}${createOrderPath()}`;
-    let fakeOrder = {id: '123457', name: 'hi'};
+    let fakeOrder = {id: Math.random(), name: data.get('name')};
     fakeOrders.push(fakeOrder);
     return Promise.resolve(fakeOrder);
 

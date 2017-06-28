@@ -25,27 +25,7 @@ import orderSetSelector from '../selectors/order-set.selector';
 import ordersPageSelector from '../selectors/orders-page.selector';
 
 const SNAKE_ORDER_CREATE_FIELDS = [
-  'order_file',
-  'customer_order_id',
-  'name',
-  'order_type',
-  'intended_use',
-  'inspection_partner',
-  'valuation_partner',
-  'intended_use',
-  'special_comments',
-  'client_name',
-  'client_address',
-  'client_city',
-  'client_state',
-  'client_zipcode',
-  'client_phone',
-  'lender_name',
-  'lender_address',
-  'lender_city',
-  'lender_state',
-  'lender_zipcode',
-  'lender_phone'
+  'name'
 ];
 
 const CAMEL_ORDER_CREATE_FIELDS = SNAKE_ORDER_CREATE_FIELDS.map(camelCase);
