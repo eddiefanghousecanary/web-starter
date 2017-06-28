@@ -5,8 +5,6 @@ import { Layout, Panel, Sidebar } from 'react-toolbox';
 import type { ClientDashboardState } from '../../reducers/client-dashboard.reducer';
 import RoutingIconButton from '../../components/routing/RoutingIconButton';
 
-import OrderItemList from '../../components/client-order/order-item-list/OrderItemList';
-
 import commonStyles from '../common.css';
 import styles from './client-order.css';
 
@@ -18,7 +16,6 @@ class ClientOrder extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      orderItem: null,
       sidebarContentsType: null
     };
   }
@@ -40,16 +37,6 @@ class ClientOrder extends React.Component {
         <div className={commonStyles.panelContent}>
           <div className={commonStyles.clientHeader}>
             <span>{clientDashboardState.selectedOrder.name}</span>
-          </div>
-          <div className={commonStyles.listContainer}>
-            <OrderItemList
-              loading={clientDashboardState.selectedOrderItems.loading}
-              errorMessage={clientDashboardState.selectedOrderItems.errorMessage}
-              orderItems={clientDashboardState.selectedOrderItems.pageItems}
-              links={clientDashboardState.selectedOrderItems.links}
-              paginationRouteGeneratorFn={paginationRouteGeneratorFn}
-              selectedOrderItem={this.state.orderItem}
-            />
           </div>
         </div>
       </Panel>

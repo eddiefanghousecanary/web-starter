@@ -1,6 +1,6 @@
 // @flow
 import type { Action } from '../actions';
-import type { Order, OrderItem, Link } from '../actions/order.actions';
+import type { Order, Link } from '../actions/order.actions';
 import type { OrderSet } from '../constants/order-sets';
 
 import { ORDER_SETS } from '../constants/order-sets';
@@ -25,13 +25,6 @@ export type ClientDashboardState = {
     page: number
   },
   selectedOrder: ?Order,
-  selectedOrderItems: {
-    loading: bool,
-    links: {[key: string]: Link},
-    pageItems: OrderItem[],
-    errorMessage: ?string,
-    page: ?number
-  },
   updatingOrders: string[],
   orderSet: OrderSet
 }
@@ -50,13 +43,6 @@ const defaultState = {
     page: 1
   },
   selectedOrder: null,
-  selectedOrderItems: {
-    loading: false,
-    links: {},
-    pageItems: [],
-    errorMessage: null,
-    page: 1
-  },
   updatingOrders: [],
   orderSet: ORDER_SETS.ACTIVE
 };

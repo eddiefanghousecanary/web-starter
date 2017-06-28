@@ -2,7 +2,7 @@
 /* globals Generator */
 import type { ViewTypes } from './actions/view.actions';
 
-import { loadClientDashboardSaga, loadOrderItems } from './sagas/client-dashboard.saga';
+import { loadClientDashboardSaga, loadOrderDetail } from './sagas/client-dashboard.saga';
 import ClientDashboard from './containers/client-dashboard/ClientDashboard';
 import ClientOrder from './containers/client-order/ClientOrder';
 
@@ -22,7 +22,7 @@ export const ROUTES : {[key : string]: ViewDefinition} = {
   },
   '/client/order/:orderId/:page?': {
     id: 'client-order',
-    saga: loadOrderItems,
+    saga: loadOrderDetail,
     view: ClientOrder,
     requiresLogin: true
   }

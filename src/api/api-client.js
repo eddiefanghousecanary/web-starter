@@ -119,25 +119,4 @@ export class Client {
     });
     */
   }
-
-  getOrderItems (orderId : string, page : number = 1) {
-    let url = `${this.apiUrl}${getOrderItemsPath(orderId, page)}`;
-
-    return Promise.resolve({links: [], data: []});
-    /*
-    return fetch(url, {
-      method: 'GET',
-      headers: {
-        'Authorization': `JWT ${this.token}`
-      }
-    }).then(response => {
-      return maybeThrowApiError(response) || response.json().then(data => {
-        return {
-          links: parseLinkHeader(response.headers.get('Link')),
-          data
-        };
-      });
-    });
-    */
-  }
 }

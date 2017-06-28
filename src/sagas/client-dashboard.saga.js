@@ -16,8 +16,6 @@ import {
   ordersLoadSuccess,
   ordersLoadError,
   selectOrder,
-  orderItemsLoadSuccess,
-  orderItemsLoadError
 } from '../actions/order.actions';
 import { handleStandardExceptions, camelToSnake, snakeToCamel } from './helpers';
 import { ORDER_SETS } from '../constants/order-sets';
@@ -115,7 +113,7 @@ export function * createOrderSaga () : Generator<IOEffect, *, *> {
   yield takeEvery(CREATE_ORDER, createOrder);
 }
 
-export function * loadOrderItems ({orderId, page} : {orderId: number, page: number}) : Generator<IOEffect, *, *> {
+export function * loadOrderDetail ({orderId, page} : {orderId: number, page: number}) : Generator<IOEffect, *, *> {
   try {
     const userDetails = yield select(userDetailsSelector);
     const client = new Client(userDetails.token);
@@ -126,7 +124,6 @@ export function * loadOrderItems ({orderId, page} : {orderId: number, page: numb
     }
   } catch (e) {
     yield call(handleStandardExceptions, e);
-    yield put(orderItemsLoadError(e.message));
   }
 }
 

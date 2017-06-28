@@ -124,18 +124,6 @@ export type SelectOrderAction = {
   }
 }
 
-export type OrderItem = {
-  id: string,
-  customerItemId: string,
-  address: string,
-  unit: ?string,
-  city: string,
-  state: string,
-  zipcode: string,
-  status: string,
-  addressValidationStatus: string
-}
-
 export type OrderAction = ShowAddOrderDialogAction
   | HideAddOrderDialogAction
   | CreateOrderAction
