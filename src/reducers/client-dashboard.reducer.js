@@ -7,8 +7,7 @@ import { ORDER_SETS } from '../constants/order-sets';
 import {
   ORDERS_LOAD_SUCCESS,
   ORDERS_LOAD_ERROR,
-  SELECT_ORDER,
-  REVIEW_ORDER_UPDATED
+  SELECT_ORDER
 } from '../actions/order.actions';
 
 export type ClientDashboardState = {
@@ -75,13 +74,6 @@ export function clientDashboardReducer (state : ClientDashboardState = defaultSt
       return {
         ...state,
         selectedOrder: action.payload.order
-      };
-    }
-    case REVIEW_ORDER_UPDATED: {
-      const orderId = action.payload.id;
-      return {
-        ...state,
-        updatingOrders: state.updatingOrders.filter(e => e !== orderId)
       };
     }
     default: {

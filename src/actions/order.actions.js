@@ -10,7 +10,6 @@ export const HIDE_ORDER_TOAST = 'HIDE_ORDER_TOAST';
 export const ORDERS_LOAD_SUCCESS = 'ORDERS_LOAD_SUCCESS';
 export const ORDERS_LOAD_ERROR = 'ORDERS_LOAD_ERROR';
 export const SELECT_ORDER = 'SELECT_ORDER';
-export const REVIEW_ORDER_UPDATED = 'REVIEW_ORDER_UPDATED';
 
 export type ShowAddOrderDialogAction = {
   type: 'SHOW_ADD_ORDER_DIALOG'
